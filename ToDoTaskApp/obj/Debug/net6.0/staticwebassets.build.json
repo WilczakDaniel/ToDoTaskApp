@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "MlRNLr4QN+10kkhzrE4QJtK+wb1ne27BOAIUwcbbZ2Q=",
+  "Source": "ToDoTaskApp",
+  "BasePath": "_content/ToDoTaskApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

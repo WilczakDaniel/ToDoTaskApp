@@ -10,9 +10,9 @@ public class AppDbContext:DbContext
             
     }
     
-    DbSet<ToDoTask> ToDoTasks { get; set; }
-    DbSet<TaskCategory> TaskCategories { get; set; }
-    DbSet<Priority> Priorities { get; set; }
-    DbSet<User> Users { get; set; }
-    DbSet<Role> Roles { get; set; }
+    public DbSet<ToDoTask> ToDoTasks { get; set; }
+    public DbSet<TaskCategory> TaskCategories { get; set; }
+    public DbSet<Priority> Priorities { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<Role> Roles { get; set; }
 }
