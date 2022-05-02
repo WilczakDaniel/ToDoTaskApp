@@ -13,7 +13,7 @@ using ToDoTaskApp.Settings;
 
 namespace ToDoTaskApp.Services;
 
-public class UserService
+public class UserService : IUserService
 {
     private readonly AppDbContext _context;
     private readonly IPasswordHasher<User> _passwordHasher;

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ToDoTaskApp.Database;
 using ToDoTaskApp.Entities;
+using ToDoTaskApp.Services;
 using ToDoTaskApp.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -36,8 +37,8 @@ builder.Services.AddAuthentication(option =>
     };
 });
 
-
-
+// Add UserService
+builder.Services.AddScoped<IUserService, UserService>();
 
 
 
