@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ToDoTaskApp.Database;
 using ToDoTaskApp.Entities;
+using ToDoTaskApp.Middleware;
 using ToDoTaskApp.Models;
 using ToDoTaskApp.Models.Validator;
 using ToDoTaskApp.Services;
@@ -68,7 +69,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseMiddleware<ErrorHandlingMiddleware>();
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

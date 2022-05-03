@@ -70,6 +70,7 @@ public class TaskCategoryService : ITaskCategoryService
     public async Task RemoveAsync(int id)
     {
         var category = await _context.TaskCategories.FirstOrDefaultAsync(c => c.Id == id);
+        if(category==null) throw new NotFoundException("Task Category not found");
         _context.TaskCategories.Remove(category);
         await _context.SaveChangesAsync();
     }
