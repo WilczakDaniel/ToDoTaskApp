@@ -5,11 +5,12 @@ using Microsoft.EntityFrameworkCore;
 using ToDoTaskApp.Database;
 using ToDoTaskApp.Entities;
 using ToDoTaskApp.Exceptions;
+using ToDoTaskApp.Models;
 using ToDoTaskApp.Settings;
 
 namespace ToDoTaskApp.Services;
 
-public class TaskCategoryService
+public class TaskCategoryService : ITaskCategoryService
 {
     private readonly AppDbContext _context;
     private readonly IAuthorizationService _authorizationService;
@@ -24,14 +25,56 @@ public class TaskCategoryService
     
     public async Task<TaskCategory> GetByIdAsync(int id)
     {
+        var user =  _userContextService.GetUserId;
         var taskCategory = await _context
             .TaskCategories
-            .FirstOrDefaultAsync(r => r.Id == id);
+            .FirstOrDefaultAsync(r => r.Id == id && r.User.Id == user);
         
         if (taskCategory is null) throw new NotFoundException("Task Category not found");
         
         return taskCategory;
     }
     
+    public async Task<IEnumerable<TaskCategory>> GetAllAsync()
+    {
+        var user =  _userContextService.GetUserId;
+        var taskCategories = await _context
+            .TaskCategories
+            .Where(r => r.User.Id == user)
+            .ToListAsync();
+        
+        return taskCategories;
+    }
+    
+    public async Task CreateAsync(TaskCategoryVM taskCategoryVM)
+    {
+        var user =  _userContextService.GetUserId;
+        var newCategory = new TaskCategory()
+        {
+            Name = taskCategoryVM.Name,
+            User = await _context.Users.FirstOrDefaultAsync(u => u.Id == user)
+        };
+
+        await _context.TaskCategories.AddAsync(newCategory);
+        await _context.SaveChangesAsync();
+    }
+        
+    public async Task UpdateAsync(TaskCategoryVM taskCategoryVM)
+    {
+        var dbCategory = await _context.TaskCategories.FirstOrDefaultAsync(c => c.Id == taskCategoryVM.Id);
+        if (dbCategory != null)
+        {
+            dbCategory.Name = taskCategoryVM.Name;
+        }
+
+        await _context.SaveChangesAsync();
+    }
+    
+    public async Task RemoveAsync(int id)
+    {
+        var category = await _context.TaskCategories.FirstOrDefaultAsync(c => c.Id == id);
+        _context.TaskCategories.Remove(category);
+        await _context.SaveChangesAsync();
+    }
     
 }
