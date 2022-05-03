@@ -60,3 +60,8 @@ C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\obj\Debug\net6.0\refint\ToDoTaskA
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\obj\Debug\net6.0\ToDoTaskApp.pdb
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\obj\Debug\net6.0\ToDoTaskApp.genruntimeconfig.cache
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\obj\Debug\net6.0\ref\ToDoTaskApp.dll
+C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll

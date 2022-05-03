@@ -51,6 +51,7 @@ builder.Services.AddScoped<IUserContextService, UserContextService>();
 // Add Validator for RegisterUser
 builder.Services.AddScoped<IValidator<RegisterUserDto>, RegisterUserValidator>();
 
+
 // Add Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -58,6 +59,7 @@ builder.Services.AddSwaggerGen();
 // Add Password Hasher
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 
+builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
