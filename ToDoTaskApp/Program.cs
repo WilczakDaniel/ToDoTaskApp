@@ -3,6 +3,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using ToDoTaskApp;
 using ToDoTaskApp.Database;
 using ToDoTaskApp.Entities;
 using ToDoTaskApp.Middleware;
@@ -52,6 +53,8 @@ builder.Services.AddScoped<IUserContextService, UserContextService>();
 // Add Validator for RegisterUser
 builder.Services.AddScoped<IValidator<RegisterUserDto>, RegisterUserValidator>();
 
+// Add ErrorHandlingMiddleware
+builder.Services.AddScoped<ErrorHandlingMiddleware>();
 
 // Add Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -60,8 +63,17 @@ builder.Services.AddSwaggerGen();
 // Add Password Hasher
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 
+// Add seeder
+builder.Services.AddScoped<DataBaseSeeder>();
+
 builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
+
+// Add seeder
+var scope = app.Services.CreateScope();
+var seeder = scope.ServiceProvider.GetRequiredService<DataBaseSeeder>();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -73,7 +85,7 @@ app.UseMiddleware<ErrorHandlingMiddleware>();
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-
+seeder.Seed();
 app.MapControllers();
 
 app.Run();

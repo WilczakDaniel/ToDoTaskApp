@@ -44,7 +44,7 @@ public class UserService : IUserService
     {
         var user = _context.Users
             .Include(u=>u.Role)
-            .FirstOrDefault(x=>x.Email==dto.Login);
+            .FirstOrDefault(x=>x.Login==dto.Login);
         if(user is null)
         {
             throw new BadRequestException("Invalid email or password");

@@ -57,8 +57,8 @@ public class TaskService : ITaskService
             TaskDate = toDoTaskVM.TaskDate,
             TaskDescription = toDoTaskVM.TaskDescription,
             TaskCategoryId = toDoTaskVM.TaskCategoryId,
-            User = await _context.Users.FirstOrDefaultAsync(u => u.Id == currentUser)
         };
+        newToDoTask.UserId = currentUser;
         await _context.ToDoTasks.AddAsync(newToDoTask);
         await _context.SaveChangesAsync();
     }

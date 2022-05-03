@@ -4,7 +4,6 @@ namespace ToDoTaskApp.Models;
 
 public class ToDoTaskVM
 {
-    public int Id { get; set; }
     [Display(Name = "Title")] 
     [Required(ErrorMessage = "Title is required")]
     public string TaskName { get; set; }
