@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "1gsK9ipbIS4FG6HrjYgkkmmZ9MCR8zUtQtdYCbrfwq1MUTu075Rm0xyg1+8Xyj6EIpaJNezcFZMGBxuPPhGGTw==",
+  "dgSpecHash": "IKwxcuqNpeHgd2NbJVgmQdFdGlwGyC8DBTiRyrvmcZtK9+HpJX8R6wLCP2BAlUcXOh7S1eWRTLQFgAHziglR+w==",
   "success": true,
   "projectFilePath": "C:\\Users\\danie\\Desktop\\ToDoTaskApp\\ToDoTaskApp\\ToDoTaskApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danie\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\danie\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
+    "C:\\Users\\danie\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.4.0\\fluentvalidation.aspnetcore.10.4.0.nupkg.sha512",
+    "C:\\Users\\danie\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.4.0\\fluentvalidation.dependencyinjectionextensions.10.4.0.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.4\\microsoft.aspnetcore.authentication.jwtbearer.6.0.4.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

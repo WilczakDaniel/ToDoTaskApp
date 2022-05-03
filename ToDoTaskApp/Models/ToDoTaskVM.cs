@@ -6,8 +6,10 @@ public class ToDoTaskVM
 {
     public int Id { get; set; }
     [Display(Name = "Title")] 
+    [Required(ErrorMessage = "Title is required")]
     public string TaskName { get; set; }
     [Display(Name = "Date")] 
+    [Required(ErrorMessage = "Date is required")]
     public DateTime TaskDate { get; set; }
     [Display(Name = "Description")] 
     public string? TaskDescription { get; set; }

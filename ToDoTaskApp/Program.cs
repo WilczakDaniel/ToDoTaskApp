@@ -1,9 +1,12 @@
 using System.Text;
+using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ToDoTaskApp.Database;
 using ToDoTaskApp.Entities;
+using ToDoTaskApp.Models;
+using ToDoTaskApp.Models.Validator;
 using ToDoTaskApp.Services;
 using ToDoTaskApp.Settings;
 
@@ -45,8 +48,8 @@ builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddScoped<ITaskCategoryService, TaskCategoryService>();
 // Add UserContextService
 builder.Services.AddScoped<IUserContextService, UserContextService>();
-
-
+// Add Validator for RegisterUser
+builder.Services.AddScoped<IValidator<RegisterUserDto>, RegisterUserValidator>();
 
 // Add Swagger
 builder.Services.AddEndpointsApiExplorer();
