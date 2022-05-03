@@ -9,6 +9,6 @@ public interface ITaskService
     Task<ToDoTask> GetByIdAsync(int id);
     Task CreateAsync(ToDoTaskVM toDoTaskVM);
     Task RemoveAsync(int id);
-    Task UpdateAsync(ToDoTaskVM toDoTaskVM);
+    Task UpdateAsync(int id,ToDoTaskVM toDoTaskVM);
     Task Done(int id);
 }

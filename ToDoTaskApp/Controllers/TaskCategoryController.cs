@@ -5,7 +5,7 @@ using ToDoTaskApp.Services;
 
 namespace ToDoTaskApp.Controllers;
 
-[Route("api/taskcategories")]
+[Route("api/categories")]
 [ApiController]
 [Authorize]
 public class TaskCategoryController : ControllerBase
@@ -40,14 +40,14 @@ public class TaskCategoryController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<OkResult> Update([FromRoute] int id, [FromBody] TaskCategoryVM taskCategory)
+    public async Task<ActionResult> Update([FromRoute] int id, [FromBody] TaskCategoryVM taskCategory)
     {
         await _taskCategoryService.UpdateAsync(id, taskCategory);
         return Ok();
     }
 
     [HttpDelete("{id}")]
-    public async Task<NoContentResult> Delete([FromRoute] int id)
+    public async Task<ActionResult> Delete([FromRoute] int id)
     {
         await _taskCategoryService.RemoveAsync(id);
         return NoContent();

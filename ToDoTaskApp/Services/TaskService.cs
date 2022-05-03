@@ -67,9 +67,9 @@ public class TaskService : ITaskService
         await _context.SaveChangesAsync();
     }
     
-    public async Task UpdateAsync(ToDoTaskVM toDoTaskVM)
+    public async Task UpdateAsync(int id,ToDoTaskVM toDoTaskVM)
     {
-        var newTask = await _context.ToDoTasks.FirstOrDefaultAsync(t => t.Id == toDoTaskVM.Id);
+        var newTask = await _context.ToDoTasks.FirstOrDefaultAsync(t => t.Id == id);
         if (newTask != null)
         {
             newTask.TaskName = toDoTaskVM.TaskName;
