@@ -59,15 +59,12 @@ public class TaskCategoryService : ITaskCategoryService
         await _context.SaveChangesAsync();
     }
         
-    public async Task UpdateAsync(TaskCategoryVM taskCategoryVM)
+    public async Task UpdateAsync(int id ,TaskCategoryVM taskCategoryVM)
     {
-        var dbCategory = await _context.TaskCategories.FirstOrDefaultAsync(c => c.Id == taskCategoryVM.Id);
-        if (dbCategory != null)
-        {
-            dbCategory.Name = taskCategoryVM.Name;
-        }
-
-        await _context.SaveChangesAsync();
+        var dbCategory = await _context.TaskCategories.FirstOrDefaultAsync(c => c.Id == id);
+        if (dbCategory is null) throw new NotFoundException("Task Category not found");
+         dbCategory.Name = taskCategoryVM.Name;
+         await _context.SaveChangesAsync();
     }
     
     public async Task RemoveAsync(int id)
