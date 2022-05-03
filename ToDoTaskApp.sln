@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoTaskApp", "ToDoTaskApp\ToDoTaskApp.csproj", "{107DD505-E9AE-4410-BE59-09446B3CB3A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoTaskAppTests", "ToDoTaskAppTests\ToDoTaskAppTests.csproj", "{F673466C-9D74-483F-9E38-1E94FE765DCE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{107DD505-E9AE-4410-BE59-09446B3CB3A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{107DD505-E9AE-4410-BE59-09446B3CB3A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{107DD505-E9AE-4410-BE59-09446B3CB3A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F673466C-9D74-483F-9E38-1E94FE765DCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F673466C-9D74-483F-9E38-1E94FE765DCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F673466C-9D74-483F-9E38-1E94FE765DCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F673466C-9D74-483F-9E38-1E94FE765DCE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
