@@ -39,6 +39,12 @@ builder.Services.AddAuthentication(option =>
 
 // Add UserService
 builder.Services.AddScoped<IUserService, UserService>();
+// Add TaskService
+builder.Services.AddScoped<ITaskService, TaskService>();
+// Add TaskCategoryService
+builder.Services.AddScoped<ITaskCategoryService, TaskCategoryService>();
+// Add UserContextService
+builder.Services.AddScoped<IUserContextService, UserContextService>();
 
 
 

@@ -7,7 +7,7 @@ using ToDoTaskApp.Models;
 
 namespace ToDoTaskApp.Services;
 
-public class TaskService
+public class TaskService : ITaskService
 {
     private readonly AppDbContext _context;
     private readonly IAuthorizationService _authorizationService;
