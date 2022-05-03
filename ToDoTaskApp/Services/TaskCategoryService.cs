@@ -46,9 +46,8 @@ public class TaskCategoryService : ITaskCategoryService
             .Where(r => r.User.Id == user)
             .Include(x=>x.User)
             .ToListAsync();
-        
+
         var taskCategoriesDto = _mapper.Map<List<TaskCategoryDto>>(taskCategories);
-        
         return taskCategoriesDto;
     }
     

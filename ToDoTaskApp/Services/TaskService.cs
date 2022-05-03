@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using ToDoTaskApp.Database;
@@ -12,18 +13,20 @@ public class TaskService : ITaskService
 {
     private readonly AppDbContext _context;
     private readonly IAuthorizationService _authorizationService;
+    private readonly IMapper _mapper;
     private readonly IUserContextService _userContextService;
 
-    public TaskService(AppDbContext context, IAuthorizationService authorizationService,
+    public TaskService(AppDbContext context, IAuthorizationService authorizationService,IMapper mapper,
         IUserContextService userContextService)
     {
         _context = context;
         _authorizationService = authorizationService;
+        _mapper = mapper;
         _userContextService = userContextService;
     }
 
 
-    public async Task<IEnumerable<ToDoTask>> GetAllAsync(string name)
+    public async Task<IEnumerable<ToDoTaskDto>> GetAllAsync(string name)
     {
         var currentUser = _userContextService.GetUserId;
         IQueryable<ToDoTask> taskQuery = _context.ToDoTasks.Include(x => x.TaskCategory);
@@ -37,15 +40,16 @@ public class TaskService : ITaskService
         }
 
         var tasks = await taskQuery.ToListAsync();
-        return tasks;
+        var taskDto = _mapper.Map<IEnumerable<ToDoTaskDto>>(tasks);
+        return taskDto;
     }
 
-    public async Task<ToDoTask> GetByIdAsync(int id)
+    public async Task<ToDoTaskDto> GetByIdAsync(int id)
     {
         var currentUser = _userContextService.GetUserId;
         var task = await _context.ToDoTasks.FirstOrDefaultAsync(t => t.User.Id == currentUser && t.Id == id);
         if(task==null) throw new NotFoundException("Task not found");
-        return task;
+        return _mapper.Map<ToDoTaskDto>(task);
     }
 
     public async Task CreateAsync(ToDoTaskVM toDoTaskVM)

@@ -56,7 +56,6 @@ C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\obj\Debug\net6.0\staticwebassets.
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\obj\Debug\net6.0\scopedcss\bundle\ToDoTaskApp.styles.css
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\obj\Debug\net6.0\ToDoTaskApp.csproj.CopyComplete
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\obj\Debug\net6.0\ToDoTaskApp.dll
-C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\obj\Debug\net6.0\refint\ToDoTaskApp.dll
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\obj\Debug\net6.0\ToDoTaskApp.pdb
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\obj\Debug\net6.0\ToDoTaskApp.genruntimeconfig.cache
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\obj\Debug\net6.0\ref\ToDoTaskApp.dll
@@ -65,3 +64,4 @@ C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\AutoMapper.Exten
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\ref\ToDoTaskApp.dll

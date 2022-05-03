@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Text;
 using FluentValidation;
 using Microsoft.AspNetCore.Identity;
@@ -53,6 +54,8 @@ builder.Services.AddScoped<IUserContextService, UserContextService>();
 // Add Validator for RegisterUser
 builder.Services.AddScoped<IValidator<RegisterUserDto>, RegisterUserValidator>();
 
+// Add AutoMapper
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 // Add ErrorHandlingMiddleware
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 

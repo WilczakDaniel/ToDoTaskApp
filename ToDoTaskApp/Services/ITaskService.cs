@@ -5,8 +5,8 @@ namespace ToDoTaskApp.Services;
 
 public interface ITaskService
 {
-    Task<IEnumerable<ToDoTask>> GetAllAsync(string name);
-    Task<ToDoTask> GetByIdAsync(int id);
+    Task<IEnumerable<ToDoTaskDto>> GetAllAsync(string name);
+    Task<ToDoTaskDto> GetByIdAsync(int id);
     Task CreateAsync(ToDoTaskVM toDoTaskVM);
     Task RemoveAsync(int id);
     Task UpdateAsync(int id,ToDoTaskVM toDoTaskVM);
