@@ -18,21 +18,21 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 
-// Add database connection
-builder.Services.AddDbContext<AppDbContext>
-    (options => options.UseSqlServer(builder.Configuration.GetConnectionString("Application")));
+// // Add database connection
+// builder.Services.AddDbContext<AppDbContext>
+//     (options => options.UseSqlServer(builder.Configuration.GetConnectionString("Application")));
 
 
-// // Add docker database connection
-// var server = builder.Configuration["DbServer"] ?? "localhost";
-// var port = builder.Configuration["DbPort"] ?? "1433";
-// var user = builder.Configuration["DBUser"] ?? "SA";
-// var password = builder.Configuration["DBPassword"] ?? "Passw0rd20222019";
-// var database = builder.Configuration["Database"] ?? "ToDoTaskDB";
-//
-// builder.Services.AddDbContext<AppDbContext>(options =>
-//     options.UseSqlServer($"Server={server},{port};Database={database};User ID ={user};Password={password}")
-// );
+// Add docker database connection
+var server = builder.Configuration["DbServer"] ?? "sqlserver";
+var port = builder.Configuration["DbPort"] ?? "1433";
+var user = builder.Configuration["DBUser"] ?? "SA";
+var password = builder.Configuration["DBPassword"] ?? "Your_password123";
+var database = builder.Configuration["Database"] ?? "ToDoTaskDB";
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer($"Server={server},{port};Initial catalog={database};User ID ={user};Password={password}")
+);
 // Add authorization
 var authSettings = new AuthSettings();
 builder.Configuration.GetSection("Authentication").Bind(authSettings);
@@ -93,6 +93,6 @@ app.UseSwaggerUI();
 app.UseMiddleware<ErrorHandlingMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
-seeder.Seed();
+PrepDB.PrepPopulation(app);
 app.MapControllers();
 app.Run();
