@@ -22,6 +22,17 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<AppDbContext>
     (options => options.UseSqlServer(builder.Configuration.GetConnectionString("Application")));
 
+
+// // Add docker database connection
+// var server = builder.Configuration["DbServer"] ?? "localhost";
+// var port = builder.Configuration["DbPort"] ?? "1433";
+// var user = builder.Configuration["DBUser"] ?? "SA";
+// var password = builder.Configuration["DBPassword"] ?? "Passw0rd20222019";
+// var database = builder.Configuration["Database"] ?? "ToDoTaskDB";
+//
+// builder.Services.AddDbContext<AppDbContext>(options =>
+//     options.UseSqlServer($"Server={server},{port};Database={database};User ID ={user};Password={password}")
+// );
 // Add authorization
 var authSettings = new AuthSettings();
 builder.Configuration.GetSection("Authentication").Bind(authSettings);
