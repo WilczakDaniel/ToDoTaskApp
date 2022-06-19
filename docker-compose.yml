@@ -16,14 +16,14 @@ services:
     container_name: 'rabbitmq'
     ports:
       - 5672:5672
-      - 15680:15672
+      - 15880:15672
     volumes:
       - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
       - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
     networks:
-      - rabbitmq_go_net
+      - rabbitmq
 
 networks:
-  rabbitmq_go_net:
+  rabbitmq:
     driver: bridge
   

@@ -1,6 +1,8 @@
 using System.Reflection;
 using System.Text;
+using EasyNetQ;
 using FluentValidation;
+using MassTransit;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -14,15 +16,11 @@ using ToDoTaskApp.Services;
 using ToDoTaskApp.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 builder.Services.AddControllers();
-
 // // Add database connection
 // builder.Services.AddDbContext<AppDbContext>
 //     (options => options.UseSqlServer(builder.Configuration.GetConnectionString("Application")));
-
-
 // Add docker database connection
 var server = builder.Configuration["DbServer"] ?? "sqlserver";
 var port = builder.Configuration["DbPort"] ?? "1433";
@@ -53,7 +51,6 @@ builder.Services.AddAuthentication(option =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authSettings.JwtKey)),
     };
 });
-
 // Add UserService
 builder.Services.AddScoped<IUserService, UserService>();
 // Add TaskService
@@ -64,29 +61,39 @@ builder.Services.AddScoped<ITaskCategoryService, TaskCategoryService>();
 builder.Services.AddScoped<IUserContextService, UserContextService>();
 // Add Validator for RegisterUser
 builder.Services.AddScoped<IValidator<RegisterUserDto>, RegisterUserValidator>();
-
 // Add AutoMapper
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 // Add ErrorHandlingMiddleware
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
-
 // Add Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 // Add Password Hasher
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
-
 // Add seeder
 builder.Services.AddScoped<DataBaseSeeder>();
-
+// Add HttpContextAccessor
 builder.Services.AddHttpContextAccessor();
+
 
 var app = builder.Build();
 
-// Add seeder
-var scope = app.Services.CreateScope();
-var seeder = scope.ServiceProvider.GetRequiredService<DataBaseSeeder>();
+// // Add seeder
+// var scope = app.Services.CreateScope();
+// var seeder = scope.ServiceProvider.GetRequiredService<DataBaseSeeder>();
+
+// MassTransit
+var bus = Bus.Factory.CreateUsingRabbitMq(config =>
+{
+    config.Host("amqp://guest:guest@rabbitmq:15672");
+    config.ReceiveEndpoint("temp-queue", c =>
+    {
+        c.Handler<RegisterUserDto>(ctx =>
+        {
+            return Console.Out.WriteAsync(ctx.Message.Login);
+        });
+    });
+});
 
 app.UseSwagger();
 app.UseSwaggerUI();
@@ -96,3 +103,4 @@ app.UseAuthorization();
 PrepDB.PrepPopulation(app);
 app.MapControllers();
 app.Run();
+
