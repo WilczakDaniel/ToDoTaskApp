@@ -4,6 +4,6 @@ namespace ToDoTaskApp.Services;
 
 public interface IUserService
 {
-    void RegisterUser(RegisterUserDto dto);
+    void RegisterUser(string Login, string Email, string Password, int RoleId);
     string GenerateJwt(LoginDto dto);
 }

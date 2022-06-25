@@ -1,6 +1,9 @@
 ﻿using MassTransit;
 using Microsoft.AspNetCore.Mvc;
+using ToDoTaskApp.Commands;
+using ToDoTaskApp.Commands.Handlers;
 using ToDoTaskApp.Entities;
+using ToDoTaskApp.Events.External;
 using ToDoTaskApp.Models;
 using ToDoTaskApp.Services;
 
@@ -11,26 +14,19 @@ namespace ToDoTaskApp.Controllers;
 public class AccountController:ControllerBase
 {
     private readonly IUserService _userService;
-    private readonly IPublishEndpoint _publishEndpoint;
+    private readonly CreateAccountHandler _createAccount;
 
 
-    public AccountController(IUserService userService,IPublishEndpoint publishEndpoint)
+    public AccountController(IUserService userService, CreateAccountHandler createAccount)
     {
         _userService = userService;
-        _publishEndpoint = publishEndpoint;
+        _createAccount = createAccount;
     }
     
     [HttpPost("register")]
-    public async Task<ActionResult> RegisterUser([FromBody]RegisterUserDto dto)
+    public async Task<ActionResult> RegisterUser([FromBody] RegisterUserDto userCreated )
     {
-        await _publishEndpoint.Publish<RegisterUserDto>( new
-        {
-            Login = dto.Login,
-            Email = dto.Email,
-            Password = dto.Password,
-            ConfirmPassword = dto.ConfirmPassword,
-            RoleId = dto.RoleId
-        });
+        await _createAccount.HandleAsync(new CreateAccount(userCreated.Login, userCreated.Email,userCreated.Password,userCreated.RoleId));
         return Ok();
     }
 

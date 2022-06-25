@@ -9,7 +9,6 @@ public class RegisterUserValidator:AbstractValidator<RegisterUserDto>
     {
         RuleFor(x=>x.Email).NotEmpty().EmailAddress();
         RuleFor(x => x.Password).MinimumLength(6);
-        RuleFor(x=>x.ConfirmPassword).Equal(x=>x.Password);
         RuleFor(x=>x.Email)
             .Custom((value,context)=>
             {

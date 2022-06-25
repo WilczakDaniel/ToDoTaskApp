@@ -26,15 +26,15 @@ public class UserService : IUserService
         _authSettings = authSettings;
     }
 
-    public void RegisterUser(RegisterUserDto dto)
+    public void RegisterUser(string Login, string Email, string Password, int RoleId)
     {
         var newUser = new User()
         {
-            Login = dto.Login,
-            Email = dto.Email,
-            RoleId = dto.RoleId,
+            Login = Login,
+            Email = Email,
+            RoleId = RoleId,
         };
-        var hashedPassword =  _passwordHasher.HashPassword(newUser, dto.Password);
+        var hashedPassword =  _passwordHasher.HashPassword(newUser, Password);
         newUser.PasswordHash = hashedPassword;
         _context.Users.Add(newUser);
         _context.SaveChanges();
