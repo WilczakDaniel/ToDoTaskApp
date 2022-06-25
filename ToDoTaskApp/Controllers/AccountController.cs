@@ -1,9 +1,6 @@
-﻿using MassTransit;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ToDoTaskApp.Commands;
 using ToDoTaskApp.Commands.Handlers;
-using ToDoTaskApp.Entities;
-using ToDoTaskApp.Events.External;
 using ToDoTaskApp.Models;
 using ToDoTaskApp.Services;
 

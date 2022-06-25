@@ -1,8 +1,6 @@
 using System.Reflection;
 using System.Text;
-using EasyNetQ;
 using FluentValidation;
-using MassTransit;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -24,6 +22,8 @@ builder.Services.AddControllers();
 // Add database connection
 builder.Services.AddDbContext<AppDbContext>
     (options => options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
+
+//
 // var server = builder.Configuration["DbServer"] ?? "sqlserver";
 // var port = builder.Configuration["DbPort"] ?? "1433";
 // var user = builder.Configuration["DBUser"] ?? "SA";
@@ -81,7 +81,7 @@ builder.Services.AddTransient<UserCreatedHandler>();
 builder.Services.AddSingleton<IConnectionProvider>(new ConnectionProvider("amqp://guest:guest@localhost:5672"));
 builder.Services.AddSingleton<ISubscriber>(x => new Subscriber(x.GetService<IConnectionProvider>(),
     "account_exchange",
-    "account_queue",
+    "acc_queue",
     "account.*",
     ExchangeType.Topic));
 builder.Services.AddScoped<IPublisher>(x => new Publisher(x.GetService<IConnectionProvider>(),

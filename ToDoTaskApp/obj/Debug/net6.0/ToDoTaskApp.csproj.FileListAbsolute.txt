@@ -65,13 +65,6 @@ C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\FluentValidation
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\obj\Debug\net6.0\refint\ToDoTaskApp.dll
-C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\EasyNetQ.dll
-C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\MassTransit.dll
-C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\MassTransit.Abstractions.dll
-C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\MassTransit.AspNetCoreIntegration.dll
-C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\MassTransit.ExtensionsDependencyInjectionIntegration.dll
-C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\MassTransit.RabbitMqTransport.dll
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\RabbitMQ.Client.dll
-C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\danie\Desktop\ToDoTaskApp\ToDoTaskApp\bin\Debug\net6.0\Plain.RabbitMQ.dll

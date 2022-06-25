@@ -1,4 +1,3 @@
-using MassTransit;
 using Newtonsoft.Json;
 using Plain.RabbitMQ;
 using ToDoTaskApp.Services;
