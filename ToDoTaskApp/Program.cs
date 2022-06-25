@@ -22,17 +22,20 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 // Add database connection
-builder.Services.AddDbContext<AppDbContext>
-    (options => options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
-// var server = builder.Configuration["DbServer"] ?? "sqlserver";
-// var port = builder.Configuration["DbPort"] ?? "1433";
-// var user = builder.Configuration["DBUser"] ?? "SA";
-// var password = builder.Configuration["DBPassword"] ?? "Your_password123";
-// var database = builder.Configuration["Database"] ?? "ToDoTaskDB";
+// builder.Services.AddDbContext<AppDbContext>
+//     (options => options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
+//
 
-// builder.Services.AddDbContext<AppDbContext>(options =>
-//     options.UseSqlServer($"Server={server},{port};Initial catalog={database};User ID ={user};Password={password}")
-// );
+
+var server = builder.Configuration["DbServer"] ?? "sqlserver";
+var port = builder.Configuration["DbPort"] ?? "1433";
+var user = builder.Configuration["DBUser"] ?? "SA";
+var password = builder.Configuration["DBPassword"] ?? "Your_password123";
+var database = builder.Configuration["Database"] ?? "ToDoTaskDB";
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer($"Server={server},{port};Initial catalog={database};User ID ={user};Password={password}")
+);
 // Add authorization
 var authSettings = new AuthSettings();
 builder.Configuration.GetSection("Authentication").Bind(authSettings);
@@ -78,10 +81,10 @@ builder.Services.AddScoped<DataBaseSeeder>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddTransient<UserCreatedHandler>();
 // Add RabbitMQ
-builder.Services.AddSingleton<IConnectionProvider>(new ConnectionProvider("amqp://guest:guest@localhost:5672"));
+builder.Services.AddSingleton<IConnectionProvider>(new ConnectionProvider("amqp://guest:guest@host.docker.internal:5672/"));
 builder.Services.AddSingleton<ISubscriber>(x => new Subscriber(x.GetService<IConnectionProvider>(),
     "account_exchange",
-    "account_queue",
+    "account_que2",
     "account.*",
     ExchangeType.Topic));
 builder.Services.AddScoped<IPublisher>(x => new Publisher(x.GetService<IConnectionProvider>(),
