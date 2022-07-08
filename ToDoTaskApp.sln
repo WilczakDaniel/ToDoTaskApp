@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoTaskApp", "ToDoTaskApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoTaskAppTests", "ToDoTaskAppTests\ToDoTaskAppTests.csproj", "{F673466C-9D74-483F-9E38-1E94FE765DCE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF", "WPF\WPF.csproj", "{4A36796F-BE1E-4C2B-8F82-9B96E0C40317}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{F673466C-9D74-483F-9E38-1E94FE765DCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F673466C-9D74-483F-9E38-1E94FE765DCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F673466C-9D74-483F-9E38-1E94FE765DCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A36796F-BE1E-4C2B-8F82-9B96E0C40317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A36796F-BE1E-4C2B-8F82-9B96E0C40317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A36796F-BE1E-4C2B-8F82-9B96E0C40317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A36796F-BE1E-4C2B-8F82-9B96E0C40317}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
