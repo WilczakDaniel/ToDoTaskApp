@@ -4,11 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF"
+        xmlns:viewModels="clr-namespace:WPF.ViewModels"
+        xmlns:views="clr-namespace:WPF.Views"
         mc:Ignorable="d"
         Title="ToDoTaskApp" Height="600" Width="1200">
     
-    
-    
+    <Window.Resources>
+        <DataTemplate x:Name="Register" DataType="{x:Type viewModels:RegisterViewModel}">
+            <views:RegisterView DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate x:Name="Login" DataType="{x:Type viewModels:LoginViewModel}">
+            <views:LoginView DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate x:Name="AddTask" DataType="{x:Type viewModels:AddTaskViewModel}">
+            <views:AddTaskView DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate x:Name="ShowTasks" DataType="{x:Type viewModels:ShowTasksViewModel}">
+            <views:ShowTaskView DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate x:Name="AddCategory" DataType="{x:Type viewModels:AddCategoryViewModel}">
+            <views:AddCategoryView DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate x:Name="ShowCategory" DataType="{x:Type viewModels:ShowCategoryViewModel}">
+            <views:ShowCategoryView DataContext="{Binding}" />
+        </DataTemplate>
+    </Window.Resources>
     
     <Grid>
         <Grid.ColumnDefinitions>

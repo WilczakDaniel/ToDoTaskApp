@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF.ViewModels;
 
 namespace WPF
 {
@@ -27,32 +28,32 @@ namespace WPF
 
         private void Register_Button(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            DataContext = new RegisterViewModel();
         }
 
         private void AddTask_Button(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            DataContext = new AddTaskViewModel();
         }
 
         private void ShowTasks_Button(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            DataContext = new ShowTasksViewModel();
         }
 
         private void AddTaskCategory_Button(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            DataContext = new AddCategoryViewModel();
         }
 
         private void ShowTaskCategories_Button(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            DataContext = new ShowCategoryViewModel();
         }
 
         private void Login_Button(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            DataContext = new LoginViewModel();
         }
     }
 }
