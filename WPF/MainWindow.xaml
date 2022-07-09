@@ -7,7 +7,7 @@
         xmlns:viewModels="clr-namespace:WPF.ViewModels"
         xmlns:views="clr-namespace:WPF.Views"
         mc:Ignorable="d"
-        Title="ToDoTaskApp" Height="600" Width="1200">
+        Title="ToDoTaskApp" Height="600" Width="1200" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     
     <Window.Resources>
         <DataTemplate x:Name="Register" DataType="{x:Type viewModels:RegisterViewModel}">
@@ -73,6 +73,6 @@
                         Click="ShowTaskCategories_Button"/>
             </StackPanel>
         </DockPanel>
-        <ContentControl  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="5" Content="{Binding}"/>
+        <ContentControl  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="10" Grid.RowSpan="8" Content="{Binding}"/>
     </Grid>
 </Window>
