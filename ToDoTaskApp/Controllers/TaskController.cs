@@ -7,7 +7,6 @@ namespace ToDoTaskApp.Controllers;
 
 [Route("api/tasks")]
 [ApiController]
-[Authorize]
 public class TaskController : ControllerBase
 {
     private readonly ITaskService _taskService;

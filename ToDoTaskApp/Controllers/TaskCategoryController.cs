@@ -7,7 +7,6 @@ namespace ToDoTaskApp.Controllers;
 
 [Route("api/categories")]
 [ApiController]
-[Authorize]
 public class TaskCategoryController : ControllerBase
 {
     private readonly ITaskCategoryService _taskCategoryService;
