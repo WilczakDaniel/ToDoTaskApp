@@ -5,8 +5,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:WPF.Views"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="1200">
     <Grid>
-        
+        <ListView Margin="12" Background="Gray"  Name="View">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Id}" Header="Category ID" Width="381" ></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Name}" Header="Category Name" Width="381" ></GridViewColumn>
+                    <GridViewColumn Header="Delete" Width="381">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Delete"  Click="DeleteCategory_Button"></Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>
