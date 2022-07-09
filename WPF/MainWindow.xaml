@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="ToDoTaskApp" Height="600" Width="1200">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <DockPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="10" Grid.RowSpan="2" Background="LightSlateGray">
+        <StackPanel Orientation="Horizontal">
+            <Button FontWeight="Bold"  Width="150" Content="Register" Margin="25" Click="Register_Button" />
+            <Button FontWeight="Bold" Width="150" Content="Login" Margin="25"  Click="Login_Button" />
+            <Button FontWeight="Bold" Width="150" Content="Add task" Margin="25"  Click="AddTask_Button"/>
+            <Button FontWeight="Bold" Width="150" Content="Show tasks" Margin="25"  Click="ShowTasks_Button"/>
+            <Button FontWeight="Bold" Width="150" Content="Add task category" Margin="25" Click="AddTaskCategory_Button"/>
+            <Button FontWeight="Bold" Width="150" Content="Show task categories" Margin="25" Click="ShowTaskCategories_Button"/>
+        </StackPanel>
+        </DockPanel>
+        <ContentControl  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="5" Content="{Binding}"/>
     </Grid>
 </Window>
