@@ -13,8 +13,9 @@ public class ToDoTask
     public DateTime? TaskDate { get; set; }
     [DefaultValue(false)]
     public bool IsCompleted { get; set; }
-    public int? UserId { get; set; }
-    public virtual User User { get; set; }
+    
+    // public int? UserId { get; set; }
+    // public virtual User User { get; set; }
     public int? TaskCategoryId { get; set; }
     public virtual TaskCategory TaskCategory { get; set; }
 }

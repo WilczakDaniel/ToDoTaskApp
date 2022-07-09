@@ -28,10 +28,9 @@ public class TaskCategoryService : ITaskCategoryService
     
     public async Task<TaskCategoryDto> GetByIdAsync(int id)
     {
-        var user =  _userContextService.GetUserId;
         var taskCategory = await _context
             .TaskCategories
-            .FirstOrDefaultAsync(r => r.Id == id && r.User.Id == user);
+            .FirstOrDefaultAsync(r => r.Id == id );
         
         if (taskCategory is null) throw new NotFoundException("Task Category not found");
         
@@ -40,11 +39,8 @@ public class TaskCategoryService : ITaskCategoryService
     
     public async Task<IEnumerable<TaskCategoryDto>> GetAllAsync()
     {
-        var user =  _userContextService.GetUserId;
         var taskCategories = await _context
             .TaskCategories
-            .Where(r => r.User.Id == user)
-            .Include(x=>x.User)
             .ToListAsync();
 
         var taskCategoriesDto = _mapper.Map<List<TaskCategoryDto>>(taskCategories);
@@ -53,12 +49,10 @@ public class TaskCategoryService : ITaskCategoryService
     
     public async Task CreateAsync(TaskCategoryVM taskCategoryVM)
     {
-        var user =  _userContextService.GetUserId;
         var newCategory = new TaskCategory()
         {
             Name = taskCategoryVM.Name,
         };
-        newCategory.UserId = user;
 
         await _context.TaskCategories.AddAsync(newCategory);
         await _context.SaveChangesAsync();

@@ -28,11 +28,11 @@ public class TaskService : ITaskService
 
     public async Task<IEnumerable<ToDoTaskDto>> GetAllAsync(string name)
     {
-        var currentUser = _userContextService.GetUserId;
+        // var currentUser = _userContextService.GetUserId;
         IQueryable<ToDoTask> taskQuery = _context.ToDoTasks.Include(x => x.TaskCategory);
 
-        taskQuery = taskQuery
-            .Where(t => t.User.Id == currentUser);
+        // taskQuery = taskQuery
+            // .Where(t => t.User.Id == currentUser);
 
         if (!string.IsNullOrEmpty(name))
         {
@@ -46,15 +46,15 @@ public class TaskService : ITaskService
 
     public async Task<ToDoTaskDto> GetByIdAsync(int id)
     {
-        var currentUser = _userContextService.GetUserId;
-        var task = await _context.ToDoTasks.FirstOrDefaultAsync(t => t.User.Id == currentUser && t.Id == id);
+        // var currentUser = _userContextService.GetUserId;
+        var task = await _context.ToDoTasks.FirstOrDefaultAsync(t =>t.Id == id);
         if(task==null) throw new NotFoundException("Task not found");
         return _mapper.Map<ToDoTaskDto>(task);
     }
 
     public async Task CreateAsync(ToDoTaskVM toDoTaskVM)
     {
-        var currentUser = _userContextService.GetUserId;
+        // var currentUser = _userContextService.GetUserId;
         var newToDoTask = new ToDoTask()
         {
             TaskName = toDoTaskVM.TaskName,
@@ -62,7 +62,7 @@ public class TaskService : ITaskService
             TaskDescription = toDoTaskVM.TaskDescription,
             TaskCategoryId = toDoTaskVM.TaskCategoryId,
         };
-        newToDoTask.UserId = currentUser;
+        // newToDoTask.UserId = currentUser;
         await _context.ToDoTasks.AddAsync(newToDoTask);
         await _context.SaveChangesAsync();
     }

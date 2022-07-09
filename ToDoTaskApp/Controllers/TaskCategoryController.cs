@@ -18,14 +18,14 @@ public class TaskCategoryController : ControllerBase
 
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<TaskCategoryVM>>> GetAll()
+    public async Task<ActionResult<IEnumerable<TaskCategoryDto>>> GetAll()
     {
         var taskCategories = await _taskCategoryService.GetAllAsync();
         return Ok(taskCategories);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<TaskCategoryVM>> GetById([FromRoute] int id)
+    public async Task<ActionResult<TaskCategoryDto>> GetById([FromRoute] int id)
     {
         var taskCategory = await _taskCategoryService.GetByIdAsync(id);
         return Ok(taskCategory);
