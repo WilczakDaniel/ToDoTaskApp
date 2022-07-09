@@ -4,6 +4,11 @@ namespace ToDoTaskApp.Middleware;
 
 public class ErrorHandlingMiddleware:IMiddleware
 {
+    /// <summary>
+    /// Catch exception and response status http
+    /// </summary>
+    /// <param name="context"></param>
+    /// <param name="next"></param>
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
         try

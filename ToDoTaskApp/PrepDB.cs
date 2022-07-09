@@ -6,6 +6,10 @@ namespace ToDoTaskApp;
 
 public static class PrepDB
 {
+    /// <summary>
+    /// Seed database
+    /// </summary>
+    /// <param name="app"></param>
     public static void PrepPopulation(IApplicationBuilder app)
     {
         using (var serviceScope = app.ApplicationServices.CreateScope())
