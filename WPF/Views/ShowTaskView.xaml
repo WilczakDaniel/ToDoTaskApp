@@ -5,8 +5,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:WPF.Views"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="400" d:DesignWidth="1200">
     <Grid>
-        
+        <ListView Margin="12" Background="Gray"  Name="View">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Id}" Header=" ID" Width="140" ></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = TaskName}" Header=" Name" Width="140" ></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = TaskDescription}" Header="Task Description" Width="140" ></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = TaskDate, StringFormat='yyyy-MM-dd'}" Header="Date" Width="140" ></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = IsCompleted}" Header="Completed" Width="140" ></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = TaskCategory.Name}" Header="Category Name" Width="140" ></GridViewColumn>
+                    <GridViewColumn Header="Delete" Width="140">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Delete"  Click="DeleteTask_Button"></Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Done" Width="140">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Done"  Click="Done_Button"></Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>
