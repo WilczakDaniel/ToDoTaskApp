@@ -26,7 +26,7 @@ public class TaskService : ITaskService
     }
 
 
-    public async Task<IEnumerable<ToDoTaskDto>> GetAllAsync(string name)
+    public async Task<IEnumerable<ToDoTaskDto>> GetAllAsync()
     {
         // var currentUser = _userContextService.GetUserId;
         IQueryable<ToDoTask> taskQuery = _context.ToDoTasks.Include(x => x.TaskCategory);
@@ -34,10 +34,10 @@ public class TaskService : ITaskService
         // taskQuery = taskQuery
             // .Where(t => t.User.Id == currentUser);
 
-        if (!string.IsNullOrEmpty(name))
-        {
-            taskQuery = taskQuery.Where(x => x.TaskName.Contains(name));
-        }
+        // if (!string.IsNullOrEmpty(name))
+        // {
+        //     taskQuery = taskQuery.Where(x => x.TaskName.Contains(name));
+        // }
 
         var tasks = await taskQuery.ToListAsync();
         var taskDto = _mapper.Map<IEnumerable<ToDoTaskDto>>(tasks);

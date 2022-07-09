@@ -18,9 +18,9 @@ public class TaskController : ControllerBase
     
     
     [HttpGet]
-    public async Task<IActionResult> GetAllTasks([FromBody] string name)
+    public async Task<IActionResult> GetAllTasks()
     {
-        var tasks = await _taskService.GetAllAsync(name);
+        var tasks = await _taskService.GetAllAsync();
         return Ok(tasks);
     }
     
@@ -51,4 +51,12 @@ public class TaskController : ControllerBase
         await _taskService.RemoveAsync(id);
         return NoContent();
     }
+    
+    [HttpPost("{id}")]
+    public async Task<IActionResult> DoneTask([FromRoute] int id)
+    {
+        await _taskService.Done(id);
+        return Ok();
+    }
+    
 }
